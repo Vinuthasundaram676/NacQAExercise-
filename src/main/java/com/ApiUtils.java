@@ -42,6 +42,11 @@ public class ApiUtils {
      */
     public Object restcall(String endpoints, Method method, List<Header> headerlist, @Nullable Object requestBody) {
 
+         if (headerlist == null) {
+            headerlist = new ArrayList<>();
+            headerlist.add(new Header("Content-Type", "application/json"));
+        }
+        
         Headers headers = new Headers(headerlist);
 
         response = null;
